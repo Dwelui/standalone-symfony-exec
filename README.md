@@ -2,6 +2,8 @@
 
 ## Build
 
+Prepare build
+
 ```bash
 mkdir build/my-prepared-app
 git archive HEAD | tar -x -C build/my-prepared-app
@@ -12,17 +14,19 @@ composer install --ignore-platform-reqs --no-dev -a
 cd ../..
 ```
 
+Install build tool
+
 ```bash
 git clone https://github.com/php/frankenphp
 ```
 
-```bash
-cd frankenphp
-```
+Build executable
 
 ```bash
+cd frankenphp
+
 PHP_EXTENSIONS="filter,iconv,tokenizer" \
-EMBED=/home/mantas/Projects/Playground/standalone-php-exec/build/my-prepared-app \
+EMBED=../build/my-prepared-app \
 ./build-static.sh
 ```
 
